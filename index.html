@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='purple-grad' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%239333ea'/%3E%3Cstop offset='100%25' stop-color='%23c026d3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z' fill='url(%23purple-grad)'/%3E%3C/svg%3E">
+    <title>AquaGlow | Premium Aquarium Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+  
+    <style>
+        .gradient-text { @apply bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-fuchsia-600; }
+        .gradient-bg { @apply bg-gradient-to-r from-purple-600 to-fuchsia-600; }
+    </style>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
+
+   <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-purple-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+            <a href="index.html">
+                <div class="flex items-center space-x-2 shrink-0">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="url(#purple-grad)" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#9333ea" />
+                            <stop offset="100%" stop-color="#c026d3" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z" fill="url(#purple-grad)"/>
+                </svg>
+                <div class="text-2xl font-bold text-purple-700 dark:text-purple-400">Aqua</div>
+            </div>
+            </a>
+            
+
+           <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-700 dark:text-slate-200">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="home2.html" class="nav-link">Home2</a>
+    <a href="aboutus.html" class="nav-link">About Us</a>
+    <a href="services.html" class="nav-link">Services</a>
+    <a href="gallery.html" class="nav-link">Gallery</a>
+    <a href="pricing.html" class="nav-link">Pricing</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+</div>
+<script>
+    // 1. Get the current filename (e.g., 'aboutus.html')
+    // We use window.location.pathname and split it to get the last part
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // 2. Select all links with the 'nav-link' class
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        // 3. Check if the link's href matches the current path
+        if (link.getAttribute('href') === currentPath) {
+            // Apply active styles
+            link.classList.add('text-purple-600', 'border-b-2', 'border-purple-600');
+            // Remove any hover classes that might conflict with active state
+            link.classList.remove('hover:text-purple-600');
+        } else {
+            // Apply normal hover styles for inactive links
+            link.classList.add('hover:text-purple-600', 'transition-colors');
+        }
+    });
+</script>
+
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <button id="themeToggle" class="p-2 rounded-full hover:bg-purple-100 dark:hover:bg-slate-800 text-purple-600">🌓</button>
+                <button id="dirToggle" class="p-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600">LTR/RTL</button>
+                <a href="login.html">
+                <button class="text-purple-700 font-semibold hover:text-purple-900">Login</button>
+
+                </a>
+                <a href="booknow.html">
+                <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-purple-500/30 transition-all">Book Now</button>
+
+                </a>
+            </div>
+
+            <button id="mobileMenuBtn" class="lg:hidden p-2 text-purple-700 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </div>
+
+<!-- Added lg:hidden to hide it on large desktops automatically -->
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="hidden lg:hidden absolute w-full left-0 bg-white dark:bg-slate-900 border-b border-purple-100 dark:border-slate-800 p-4 space-y-2 shadow-xl z-40 transition-all duration-300">
+    <!-- Links -->
+    <a href="index.html" class="nav-link block py-2 text-slate-700 dark:text-slate-200 hover:text-purple-600 font-semibold">Home</a>
+    <a href="home2.html" class="nav-link block py-2 text-slate-700 dark:text-slate-200 hover:text-purple-600 font-semibold">Home2</a>
+    <a href="aboutus.html" class="nav-link block py-2 text-slate-700 dark:text-slate-200 hover:text-purple-600 font-semibold">About Us</a>
+    <a href="services.html" class="nav-link block py-2 text-slate-700 dark:text-slate-200 hover:text-purple-600 font-semibold">Services</a>
+    <a href="gallery.html" class="nav-link block py-2 text-slate-700 dark:text-slate-200 hover:text-purple-600 font-semibold">Gallery</a>
+    <a href="pricing.html" class="nav-link block py-2 text-slate-700 dark:text-slate-200 hover:text-purple-600 font-semibold">Pricing</a>
+    <a href="contact.html" class="nav-link block py-2 text-slate-700 dark:text-slate-200 hover:text-purple-600 font-semibold">Contact</a>
+
+    <!-- Footer buttons -->
+    <div class="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-3">
+        <div class="flex gap-4 justify-center py-2">
+            <button id="mobileThemeToggle" class="p-2 rounded-full border border-purple-500 text-purple-600">🌓</button>
+            <button id="mobileDirToggle" class="p-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600">LTR/RTL</button>
+        </div>
+       <div class="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-4 px-2">
+    
+    <a href="login.html" class="block">
+        <button class="w-full text-purple-700 dark:text-purple-400 font-semibold py-3 border border-purple-600 dark:border-purple-500 rounded-xl transition-all duration-300 active:scale-95 hover:bg-purple-50 dark:hover:bg-purple-900/20">
+            Login
+        </button>
+    </a>
+
+    <a href="booknow.html" class="block">
+        <button class="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg">
+            Book Now
+        </button>
+    </a>
+</div>
+</div>
+</div>
+<script>
+    // AUTOMATIC ACTIVE STATE LOGIC
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentPath = window.location.pathname.split("/").pop(); // Get current page filename
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            if (href === currentPath || (currentPath === "" && href === "index.html")) {
+                link.classList.add("text-purple-600", "border-l-4", "border-purple-600", "pl-2");
+            }
+        });
+    });
+</script>
+
+
+
+</nav>
+
+<section class="max-w-7xl mx-auto px-6 py-16 lg:py-24 flex flex-col lg:flex-row items-center gap-12">
+    
+    <div class="flex-1 space-y-8 text-center lg:text-left">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-slate-900 dark:text-white">
+            Bringing Aquatic <span class="gradient-text">Beauty to Life</span>
+        </h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-xl mx-auto lg:mx-0 font-medium">
+            Custom Aquarium Design, Installation & Maintenance for Homes, Offices, Restaurants, and Commercial Spaces. We transform ordinary rooms into breathtaking underwater ecosystems.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+  <a href="contact.html" 
+   class="inline-block bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white px-8 py-4 rounded-full font-semibold text-center shadow-lg shadow-purple-500/30 transition-all transform hover:scale-105 hover:opacity-90">
+    Get Free Consultation
+</a>
+
+    <a href="gallery.html" 
+       class="px-8 py-4 rounded-full font-semibold border-2 border-purple-600 text-purple-700 dark:text-purple-400 hover:bg-purple-100 dark:hover:bg-slate-800 transition-all text-center">
+        View Projects
+    </a>
+</div>
+
+        <div class="flex items-center justify-center lg:justify-start gap-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <div>
+                <p class="text-2xl font-bold text-slate-900 dark:text-white">500+</p>
+                <p class="text-sm text-slate-500">Projects Done</p>
+            </div>
+            <div>
+                <p class="text-2xl font-bold text-slate-900 dark:text-white">10+</p>
+                <p class="text-sm text-slate-500">Years Exp.</p>
+            </div>
+            <div>
+                <p class="text-2xl font-bold text-slate-900 dark:text-white">24/7</p>
+                <p class="text-sm text-slate-500">Support</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-1 w-full">
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:rotate-1">
+            <img src="assets/indexhero" 
+                 alt="Beautiful Custom Aquarium" 
+                 class="w-full h-[300px] md:h-[400px] lg:h-[550px] object-cover">
+            
+            <div class="absolute inset-0 bg-gradient-to-tr from-purple-900/20 to-transparent"></div>
+        </div>
+    </div>
+</section>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-4">
+            Why Choose Aqua
+        </h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">Certified Experts</h3>
+            <p class="text-slate-600 dark:text-slate-400">Our team consists of certified biologists and aquarists ensuring your ecosystem thrives.</p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">Monthly Maintenance</h3>
+            <p class="text-slate-600 dark:text-slate-400">Hassle-free, scheduled maintenance plans tailored to keep your aquarium crystal clear.</p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">Healthy Fish Guarantee</h3>
+            <p class="text-slate-600 dark:text-slate-400">We stand by our livestock. Enjoy peace of mind with our comprehensive health guarantee.</p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">Custom Solutions</h3>
+            <p class="text-slate-600 dark:text-slate-400">Bespoke aquarium designs that perfectly complement your space and lifestyle.</p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">Fast Emergency Service</h3>
+            <p class="text-slate-600 dark:text-slate-400">Quick response team ready to handle any aquatic emergencies 24/7.</p>
+        </div>
+
+        <div class="p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+                <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-3">Affordable Pricing</h3>
+            <p class="text-slate-600 dark:text-slate-400">Premium quality service that fits your budget without compromising excellence.</p>
+        </div>
+
+    </div>
+</section>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-4">Our Premium Services</h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            From visionary design to meticulous care, we provide end-to-end solutions for your aquatic ecosystems.
+        </p>
+    </div>
+
+    <!-- Grid: Responsive Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Aquarium Design -->
+        <div class="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+            <img src="assets/s1" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" alt="Aquarium Design">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent p-8 flex flex-col justify-end">
+                <h3 class="text-white text-2xl font-semibold mb-2">Aquarium Design</h3>
+                <ul class="text-slate-200 text-sm space-y-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
+                    <li>• Bespoke freshwater & marine layouts.</li>
+                    <li>• Expertly planted and reef-safe systems.</li>
+                    <li>• Innovative wall-mounted space savers.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 2: Installation -->
+        <div class="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+            <img src="assets/s2" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" alt="Installation">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent p-8 flex flex-col justify-end">
+                <h3 class="text-white text-2xl font-semibold mb-2">Installation</h3>
+                <ul class="text-slate-200 text-sm space-y-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
+                    <li>• Seamless home and office integration.</li>
+                    <li>• High-end commercial displays.</li>
+                    <li>• Full hardware and aesthetic setup.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 3: Maintenance -->
+        <div class="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+            <img src="assets/s3" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" alt="Maintenance">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent p-8 flex flex-col justify-end">
+                <h3 class="text-white text-2xl font-semibold mb-2">Expert Maintenance</h3>
+                <ul class="text-slate-200 text-sm space-y-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
+                    <li>• Precision water quality management.</li>
+                    <li>• Routine filter and cycle cleaning.</li>
+                    <li>• Detailed fish health monitoring.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 4: Emergency Support -->
+        <div class="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+            <img src="assets/s4" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" alt="Emergency">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent p-8 flex flex-col justify-end">
+                <h3 class="text-white text-2xl font-semibold mb-2">Emergency Support</h3>
+                <ul class="text-slate-200 text-sm space-y-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
+                    <li>• 24/7 rapid tank repair assistance.</li>
+                    <li>• Priority equipment replacement.</li>
+                    <li>• Urgent water chemistry correction.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 5: Cleaning Services -->
+        <div class="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+            <img src="assets/s5" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" alt="Cleaning">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent p-8 flex flex-col justify-end">
+                <h3 class="text-white text-2xl font-semibold mb-2">Deep Cleaning</h3>
+                <ul class="text-slate-200 text-sm space-y-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
+                    <li>• Comprehensive substrate vacuuming.</li>
+                    <li>• Glass and decor sterilization.</li>
+                    <li>• Algae removal and prevention.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Card 6: Consultation -->
+        <div class="group relative rounded-3xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all">
+            <img src="assets/s6" class="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110" alt="Consultation">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent p-8 flex flex-col justify-end">
+                <h3 class="text-white text-2xl font-semibold mb-2">Consultation</h3>
+                <ul class="text-slate-200 text-sm space-y-2 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
+                    <li>• Professional site assessment.</li>
+                    <li>• Customized aquatic life strategy.</li>
+                    <li>• Budget and timeline planning.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Final CTA -->
+    <div class="text-center mt-16">
+        <a href="contact.html" class="inline-block bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white font-semibold py-4 px-10 rounded-full hover:shadow-lg transition-transform hover:scale-105">
+            Get a Custom Quote
+        </a>
+    </div>
+</section>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-4">Our Simple Process</h2>
+        <p class="text-slate-600 dark:text-slate-400 max-w-lg mx-auto">From concept to a thriving underwater ecosystem in six seamless steps.</p>
+    </div>
+
+    <!-- Process Grid: Optimized for 6 cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 relative">
+        
+        <!-- Step 1: Consultation -->
+        <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 rounded-full bg-purple-100 dark:bg-purple-900/30 border-4 border-white dark:border-slate-950 flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+            </div>
+            <h3 class="font-semibold text-lg text-slate-900 dark:text-white mb-2">01. Consultation</h3>
+            <p class="text-sm text-slate-500">We listen to your vision and assess your space.</p>
+        </div>
+
+        <!-- Step 2: Design -->
+        <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 rounded-full bg-purple-100 dark:bg-purple-900/30 border-4 border-white dark:border-slate-950 flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="font-semibold text-lg text-slate-900 dark:text-white mb-2">02. Design</h3>
+            <p class="text-sm text-slate-500">Detailed blueprints and aesthetic planning.</p>
+        </div>
+
+        <!-- Step 3: Installation -->
+        <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 rounded-full bg-purple-100 dark:bg-purple-900/30 border-4 border-white dark:border-slate-950 flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            </div>
+            <h3 class="font-semibold text-lg text-slate-900 dark:text-white mb-2">03. Installation</h3>
+            <p class="text-sm text-slate-500">Professional setup and equipment integration.</p>
+        </div>
+
+        <!-- Step 4: Setup -->
+        <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 rounded-full bg-purple-100 dark:bg-purple-900/30 border-4 border-white dark:border-slate-950 flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="font-semibold text-lg text-slate-900 dark:text-white mb-2">04. Setup</h3>
+            <p class="text-sm text-slate-500">Careful introduction of fish and plant life.</p>
+        </div>
+
+        <!-- Step 5: Maintenance -->
+        <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 rounded-full bg-purple-100 dark:bg-purple-900/30 border-4 border-white dark:border-slate-950 flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 19m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"/></svg>
+            </div>
+            <h3 class="font-semibold text-lg text-slate-900 dark:text-white mb-2">05. Maintenance</h3>
+            <p class="text-sm text-slate-500">Regular upkeep for long-term health.</p>
+        </div>
+
+        <!-- Step 6: Completion (New) -->
+        <div class="flex flex-col items-center text-center group">
+            <div class="w-20 h-20 rounded-full bg-purple-100 dark:bg-purple-900/30 border-4 border-white dark:border-slate-950 flex items-center justify-center mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="font-semibold text-lg text-slate-900 dark:text-white mb-2">06. Final Handover</h3>
+            <p class="text-sm text-slate-500">Final quality check and project completion.</p>
+        </div>
+
+    </div>
+</section>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div>
+            <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
+            <p class="text-slate-600 dark:text-slate-400">A collection of our most breathtaking aquatic installations.</p>
+        </div>
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2">
+            <button class="px-4 py-2 rounded-full bg-purple-600 text-white text-sm font-semibold">All</button>
+            <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 transition-colors">Luxury Home</button>
+            <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 transition-colors">Office</button>
+        </div>
+    </div>
+
+    <!-- Project Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Project 1: Luxury Home -->
+        <div class="group relative overflow-hidden rounded-3xl cursor-pointer h-[400px]">
+            <img src="assets/f1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-purple-400 text-sm font-semibold uppercase tracking-wider">Luxury Home</span>
+                <h3 class="text-white text-xl font-semibold mt-1">Modern Residential Reef</h3>
+            </div>
+        </div>
+
+        <!-- Project 2: Office -->
+        <div class="group relative overflow-hidden rounded-3xl cursor-pointer h-[400px]">
+            <img src="assets/f2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-purple-400 text-sm font-semibold uppercase tracking-wider">Office</span>
+                <h3 class="text-white text-xl font-semibold mt-1">Corporate Reception Tank</h3>
+            </div>
+        </div>
+
+        <!-- Project 3: Restaurant -->
+        <div class="group relative overflow-hidden rounded-3xl cursor-pointer h-[400px]">
+            <img src="assets/f3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-purple-400 text-sm font-semibold uppercase tracking-wider">Restaurant</span>
+                <h3 class="text-white text-xl font-semibold mt-1">Dining Reef Display</h3>
+            </div>
+        </div>
+
+        <!-- Project 4: Reef -->
+        <div class="group relative overflow-hidden rounded-3xl cursor-pointer h-[400px]">
+            <img src="assets/f4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span class="text-purple-400 text-sm font-semibold uppercase tracking-wider">Reef</span>
+                <h3 class="text-white text-xl font-semibold mt-1">Deep Sea Ecosystem</h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-4">Maintenance Packages</h2>
+        <p class="text-slate-600 dark:text-slate-400">Choose the perfect level of care for your aquatic ecosystem.</p>
+    </div>
+
+    <!-- Pricing Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        
+        <!-- Basic Care -->
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">Basic Care</h3>
+            <div class="text-4xl font-bold text-slate-900 dark:text-white my-6">$49<span class="text-lg text-slate-500 font-normal">/mo</span></div>
+            <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-400">
+                <li class="flex items-center gap-3">✓ Monthly Cleaning</li>
+                <li class="flex items-center gap-3">✓ Water Testing</li>
+                <li class="flex items-center gap-3">✓ Filter Inspection</li>
+            </ul>
+            <button class="w-full py-3 rounded-full border-2 border-slate-200 dark:border-slate-700 font-semibold hover:border-purple-600 hover:text-purple-600 transition-all">
+                Choose Plan
+            </button>
+        </div>
+
+        <!-- Premium Care (Highlighted) -->
+        <div class="p-8 rounded-3xl bg-slate-900 dark:bg-slate-800 text-white border-2 border-purple-600 relative transform md:-translate-y-4 shadow-2xl">
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-purple-600 text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">Recommended</div>
+            <h3 class="text-xl font-semibold mb-2">Premium Care</h3>
+            <div class="text-4xl font-bold my-6">$99<span class="text-lg text-slate-400 font-normal">/mo</span></div>
+            <ul class="space-y-4 mb-8 text-slate-300">
+                <li class="flex items-center gap-3 text-white">✓ Weekly Maintenance</li>
+                <li class="flex items-center gap-3 text-white">✓ Fish Health Monitoring</li>
+                <li class="flex items-center gap-3 text-white">✓ Equipment Check</li>
+            </ul>
+            <button class="w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 font-semibold hover:opacity-90 transition-all">
+                Choose Plan
+            </button>
+        </div>
+
+        <!-- Commercial Plan -->
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all duration-300">
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">Commercial Plan</h3>
+            <div class="text-4xl font-bold text-slate-900 dark:text-white my-6">$199<span class="text-lg text-slate-500 font-normal">/mo</span></div>
+            <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-400">
+                <li class="flex items-center gap-3">✓ Multiple Tank Management</li>
+                <li class="flex items-center gap-3">✓ Priority Support</li>
+                <li class="flex items-center gap-3">✓ Emergency Visits</li>
+            </ul>
+            <button class="w-full py-3 rounded-full border-2 border-slate-200 dark:border-slate-700 font-semibold hover:border-purple-600 hover:text-purple-600 transition-all">
+                Choose Plan
+            </button>
+        </div>
+
+    </div>
+</section>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-4">Monthly Maintenance Path</h2>
+        <p class="text-slate-600 dark:text-slate-400">Our systematic approach to keep your aquarium thriving all month long.</p>
+    </div>
+
+    <!-- Tracker Container -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Week 1: Initial Care -->
+        <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-purple-500 transition-all group">
+            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">01</div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Initial Deep Clean</h3>
+            <p class="text-sm text-slate-500">Comprehensive glass cleaning, gravel vacuuming, and water change.</p>
+        </div>
+
+        <!-- Week 2: Analysis -->
+        <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-purple-500 transition-all group">
+            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">02</div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Water Analysis</h3>
+            <p class="text-sm text-slate-500">Testing ammonia, nitrates, and pH levels to ensure a stable environment.</p>
+        </div>
+
+        <!-- Week 3: Filtration -->
+        <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-purple-500 transition-all group">
+            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">03</div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Filter Service</h3>
+            <p class="text-sm text-slate-500">Cleaning mechanical filters and replacing chemical media as needed.</p>
+        </div>
+
+        <!-- Week 4: Health Check -->
+        <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-purple-500 transition-all group">
+            <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-600 flex items-center justify-center font-bold mb-4 group-hover:scale-110 transition-transform">04</div>
+            <h3 class="text-lg font-semibold text-slate-900 dark:text-white mb-2">Health Assessment</h3>
+            <p class="text-sm text-slate-500">Final inspection of fish behavior, plant growth, and lighting systems.</p>
+        </div>
+
+    </div>
+
+    <!-- Interactive Toggle Section -->
+    <div class="mt-12 text-center">
+        <button id="viewDetailsBtn" class="px-8 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-full font-semibold hover:bg-purple-600 transition-colors">
+            View Full Checklist
+        </button>
+    </div>
+</section>
+<section class="py-20 px-6 max-w-4xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-4">Ultimate Aquarium Planner</h2>
+        <p class="text-slate-600 dark:text-slate-400">Calculate volume, substrate requirements, and estimate your stock capacity.</p>
+    </div>
+
+    <div class="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-[2rem] shadow-2xl border border-slate-100 dark:border-slate-800">
+        <!-- Dimensions Input -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Length (cm)</label>
+                <input type="number" id="length" placeholder="100" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-purple-500 outline-none transition-all text-lg">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Width (cm)</label>
+                <input type="number" id="width" placeholder="40" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-purple-500 outline-none transition-all text-lg">
+            </div>
+            <div>
+                <label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Height (cm)</label>
+                <input type="number" id="height" placeholder="50" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-purple-500 outline-none transition-all text-lg">
+            </div>
+        </div>
+
+        <button onclick="calculate()" class="w-full py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white rounded-xl font-semibold text-lg hover:scale-[1.01] transition-transform shadow-lg shadow-purple-500/20">
+            Calculate Full Requirements
+        </button>
+
+        <!-- Results Grid -->
+        <div id="result" class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 hidden">
+            <!-- Capacity -->
+            <div class="p-6 bg-purple-50 dark:bg-purple-900/20 rounded-2xl text-center border border-purple-100 dark:border-purple-800">
+                <p class="text-[10px] font-bold text-purple-600 uppercase tracking-widest mb-1">Water Capacity</p>
+                <h3 id="volumeOutput" class="text-2xl font-bold text-slate-900 dark:text-white">0 L</h3>
+            </div>
+            <!-- Substrate -->
+            <div class="p-6 bg-slate-100 dark:bg-slate-800 rounded-2xl text-center border border-slate-200 dark:border-slate-700">
+                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Substrate (5cm)</p>
+                <h3 id="substrateOutput" class="text-2xl font-bold text-slate-900 dark:text-white">0 kg</h3>
+            </div>
+            <!-- Stocking -->
+            <div class="p-6 bg-fuchsia-50 dark:bg-fuchsia-900/20 rounded-2xl text-center border border-fuchsia-100 dark:border-fuchsia-800">
+                <p class="text-[10px] font-bold text-fuchsia-600 uppercase tracking-widest mb-1">Fish Capacity</p>
+                <h3 id="stockOutput" class="text-2xl font-bold text-slate-900 dark:text-white">0 cm</h3>
+            </div>
+        </div>
+        
+        <p class="text-[11px] text-slate-400 mt-6 text-center italic">*Fish capacity based on standard 1cm of fish per liter of water. Always research specific species needs.</p>
+    </div>
+</section>
+
+<script>
+    function calculate() {
+        const l = parseFloat(document.getElementById('length').value);
+        const w = parseFloat(document.getElementById('width').value);
+        const h = parseFloat(document.getElementById('height').value);
+        
+        if (l && w && h) {
+            const volume = (l * w * h) / 1000;
+            const substrate = (l * w * 5) / 1000 * 1.6;
+            // Simplified stocking: 1cm of fish per Liter
+            const stock = volume; 
+            
+            document.getElementById('volumeOutput').innerText = volume.toFixed(0) + " Liters";
+            document.getElementById('substrateOutput').innerText = substrate.toFixed(1) + " kg";
+            document.getElementById('stockOutput').innerText = stock.toFixed(0) + " cm total";
+            document.getElementById('result').classList.remove('hidden');
+        }
+    }
+</script>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-4">Client Success Stories</h2>
+        <p class="text-slate-600 dark:text-slate-400">See what our community has to say about their aquatic transformations.</p>
+    </div>
+
+    <!-- Testimonial Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Testimonial Card 1 -->
+        <div class="group p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative w-16 h-16 mb-6 overflow-hidden rounded-full border-2 border-purple-500">
+                <img src="assets/gt1" class="w-full h-full object-cover">
+            </div>
+            <p class="text-slate-600 dark:text-slate-400 mb-6 italic">"The team transformed our office reception into a breathtaking reef. Truly professional!"</p>
+            <h4 class="font-semibold text-slate-900 dark:text-white">Sarah Jenkins</h4>
+            <p class="text-xs text-purple-600 uppercase tracking-widest font-semibold mt-1">CEO, TechFlow</p>
+        </div>
+
+        <!-- Testimonial Card 2 -->
+        <div class="group p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative w-16 h-16 mb-6 overflow-hidden rounded-full border-2 border-purple-500">
+                <img src="assets/bt1" class="w-full h-full object-cover">
+            </div>
+            <p class="text-slate-600 dark:text-slate-400 mb-6 italic">"My home aquarium is finally healthy and vibrant. Their maintenance plan is a lifesaver."</p>
+            <h4 class="font-semibold text-slate-900 dark:text-white">Mark Peterson</h4>
+            <p class="text-xs text-purple-600 uppercase tracking-widest font-semibold mt-1">Homeowner</p>
+        </div>
+
+        <!-- Testimonial Card 3 -->
+        <div class="group p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative w-16 h-16 mb-6 overflow-hidden rounded-full border-2 border-purple-500">
+                <img src="assets/gt2" class="w-full h-full object-cover">
+            </div>
+            <p class="text-slate-600 dark:text-slate-400 mb-6 italic">"Responsive,reliable and extremely knowledgeable,Our restaurant display amazing."</p>
+            <h4 class="font-semibold text-slate-900 dark:text-white">Elena Rodriguez</h4>
+            <p class="text-xs text-purple-600 uppercase tracking-widest font-semibold mt-1">Owner, Bistro Aqua</p>
+        </div>
+
+        <!-- Testimonial Card 4 -->
+        <div class="group p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl hover:shadow-purple-500/10 transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative w-16 h-16 mb-6 overflow-hidden rounded-full border-2 border-purple-500">
+                <img src="assets/bt2" class="w-full h-full object-cover">
+            </div>
+            <p class="text-slate-600 dark:text-slate-400 mb-6 italic">"Fast emergency service when my pump failed. Can't recommend this team enough!"</p>
+            <h4 class="font-semibold text-slate-900 dark:text-white">David Chen</h4>
+            <p class="text-xs text-purple-600 uppercase tracking-widest font-semibold mt-1">Hobbyist</p>
+        </div>
+
+    </div>
+</section>
+<section class="py-20 px-6 max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-6">Our Aquatic Gallery</h2>
+        
+        <!-- Filter Categories -->
+        <div class="flex flex-wrap justify-center gap-3">
+            <button class="px-5 py-2 rounded-full bg-purple-600 text-white text-sm font-semibold hover:bg-purple-700 transition-all">All</button>
+            <button class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-purple-100 dark:hover:bg-slate-700 transition-all">Home</button>
+            <button class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-purple-100 dark:hover:bg-slate-700 transition-all">Office</button>
+            <button class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-purple-100 dark:hover:bg-slate-700 transition-all">Marine</button>
+            <button class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-purple-100 dark:hover:bg-slate-700 transition-all">Freshwater</button>
+            <button class="px-5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-purple-100 dark:hover:bg-slate-700 transition-all">Maintenance</button>
+        </div>
+    </div>
+
+    <!-- Gallery Grid (Masonry style layout) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
+        
+        <!-- Gallery Item 1 -->
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] cursor-pointer">
+            <img src="assets/g1" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-semibold tracking-wide">View Project</span>
+            </div>
+        </div>
+
+        <!-- Gallery Item 2 -->
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] cursor-pointer">
+            <img src="assets/g2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-semibold tracking-wide">View Project</span>
+            </div>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] cursor-pointer">
+            <img src="assets/g3" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-semibold tracking-wide">View Project</span>
+            </div>
+        </div>
+
+        <!-- Gallery Item 4 -->
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] cursor-pointer">
+            <img src="assets/g4" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-semibold tracking-wide">View Project</span>
+            </div>
+        </div>
+
+        <!-- Gallery Item 5 -->
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] cursor-pointer">
+            <img src="assets/g5" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-semibold tracking-wide">View Project</span>
+            </div>
+        </div>
+
+        <!-- Gallery Item 6 -->
+        <div class="group relative overflow-hidden rounded-3xl aspect-[4/3] cursor-pointer">
+            <img src="assets/g6" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-purple-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="text-white font-semibold tracking-wide">View Project</span>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+<section class="py-20 px-6 max-w-3xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+        <p class="text-slate-600 dark:text-slate-400">Everything you need to know about our services.</p>
+    </div>
+
+    <!-- FAQ Accordion -->
+    <div class="space-y-4">
+        
+        <!-- Question 1 -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all">
+            <button onclick="toggleFAQ(this)" class="w-full p-6 text-left flex justify-between items-center font-semibold text-slate-900 dark:text-white hover:text-purple-600 transition-colors">
+                <span>How often should my aquarium be cleaned?</span>
+                <span class="text-purple-600 text-xl font-light">+</span>
+            </button>
+            <div class="hidden px-6 pb-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                We recommend professional maintenance at least once a month to ensure water quality, filter health, and optimal tank clarity. High-tech reef setups may require bi-weekly visits.
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all">
+            <button onclick="toggleFAQ(this)" class="w-full p-6 text-left flex justify-between items-center font-semibold text-slate-900 dark:text-white hover:text-purple-600 transition-colors">
+                <span>Do you provide emergency support?</span>
+                <span class="text-purple-600 text-xl font-light">+</span>
+            </button>
+            <div class="hidden px-6 pb-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                Yes, our team offers priority emergency support for our maintenance clients, covering equipment failures, leaks, or sudden water chemistry imbalances.
+            </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all">
+            <button onclick="toggleFAQ(this)" class="w-full p-6 text-left flex justify-between items-center font-semibold text-slate-900 dark:text-white hover:text-purple-600 transition-colors">
+                <span>Can you build a custom-sized aquarium?</span>
+                <span class="text-purple-600 text-xl font-light">+</span>
+            </button>
+            <div class="hidden px-6 pb-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                Absolutely. We specialize in custom design solutions, from wall-mounted units to large-scale floor displays, perfectly tailored to your space requirements.
+            </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden transition-all">
+            <button onclick="toggleFAQ(this)" class="w-full p-6 text-left flex justify-between items-center font-semibold text-slate-900 dark:text-white hover:text-purple-600 transition-colors">
+                <span>What is the "Healthy Fish Guarantee"?</span>
+                <span class="text-purple-600 text-xl font-light">+</span>
+            </button>
+            <div class="hidden px-6 pb-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                Our guarantee ensures that any livestock provided by VEXA TECH is healthy upon arrival and acclimatized correctly into your system. We prioritize aquatic life welfare above all else.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    function toggleFAQ(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('span:last-child');
+        
+        // Toggle visibility
+        content.classList.toggle('hidden');
+        
+        // Toggle icon
+        icon.innerText = content.classList.contains('hidden') ? '+' : '-';
+        
+        // Add active style to button
+        button.classList.toggle('text-purple-600');
+    }
+</script>
+<section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto rounded-[3rem] bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-8 md:p-16 text-center shadow-2xl relative overflow-hidden">
+        
+        <!-- Decorative background elements -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+        <!-- Content -->
+        <div class="relative z-10">
+            <h2 class="text-3xl md:text-5xl font-semibold text-white mb-6 leading-tight">
+                Ready to Build Your Dream Aquarium?
+            </h2>
+            <p class="text-lg text-slate-300 mb-10 max-w-xl mx-auto">
+                Schedule a free, no-obligation consultation with our experts today and start your journey to a breathtaking underwater world.
+            </p>
+
+            <!-- Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <!-- Phone Action -->
+                <a href="contact.html" 
+                   class="flex items-center justify-center gap-3 bg-white text-slate-900 px-8 py-4 rounded-full font-semibold transition-all hover:bg-purple-50 hover:scale-105 active:scale-95 shadow-xl">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                    </svg>
+                    Call Us Today
+                </a>
+                
+                <!-- Email Action -->
+                <a href="comingsoon.html" 
+                   class="flex items-center justify-center gap-3 bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-full font-semibold transition-all hover:bg-white/20 hover:scale-105 active:scale-95">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    Email Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="bg-slate-900 text-slate-300 py-20">
+    <!-- Increased max-w to 7xl and added lg:px-8 for a wider desktop feel -->
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+        
+        <!-- Column 1: Brand Info -->
+        <div class="lg:col-span-1">
+            <a href="index.html">
+                <div class="flex items-center space-x-2 shrink-0">
+                    <svg class="w-8 h-8" viewBox="0 0 24 24" fill="url(#purple-grad)" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#9333ea" />
+                                <stop offset="100%" stop-color="#c026d3" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z" fill="url(#purple-grad)"/>
+                    </svg>
+                    <div class="text-2xl font-bold text-purple-700 dark:text-purple-400">Aqua</div>
+                </div>
+            </a>             
+            <p class="text-sm leading-6 mt-4">Professional aquatic maintenance and ecosystem design. Bringing the ocean to your home.</p>
+           <div class="flex space-x-4 mt-6">
+    <!-- Facebook -->
+    <svg class="w-6 h-6 fill-current hover:text-purple-500 cursor-pointer transition-colors" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    
+    <!-- Instagram -->
+    <svg class="w-6 h-6 fill-current hover:text-purple-500 cursor-pointer transition-colors" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.18.055 1.956.248 2.597.51.713.277 1.22.613 1.758 1.15.538.538.874 1.045 1.15 1.758.262.64.455 1.417.51 2.597.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.18-.248 1.956-.51 2.597-.277.713-.613 1.22-1.15 1.758-.538.538-1.045.874-1.758 1.15-.64.262-1.417.455-2.597.51-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.18-.055-1.956-.248-2.597-.51-.713-.277-1.22-.613-1.758-1.15-.538-.538-.874-1.045-1.15-1.758-.262-.64-.455-1.417-.51-2.597-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.18.248-1.956.51-2.597.277-.713.613-1.22 1.15-1.758.538-.538 1.045-.874 1.758-1.15.64-.262 1.417-.455 2.597-.51 1.266-.058 1.646-.07 4.85-.07zm0 2.163c-3.13 0-3.502.012-4.738.068-1.144.053-1.764.24-2.181.403-.548.213-.938.468-1.348.878-.41.41-.665.8-.878 1.348-.163.417-.35 1.037-.403 2.181-.056 1.236-.068 1.608-.068 4.738s.012 3.502.068 4.738c.053 1.144.24 1.764.403 2.181.213.548.468.938.878 1.348.41.41.8.665 1.348.878.417.163 1.037.35 2.181.403 1.236.056 1.608.068 4.738.068s3.502-.012 4.738-.068c1.144-.053 1.764-.24 2.181-.403.548-.213.938-.468 1.348-.878.41-.41.665-.8.878-1.348.163-.417.35-1.037.403-2.181.056-1.236.068-1.608.068-4.738s-.012-3.502-.068-4.738c-.053-1.144-.24-1.764-.403-2.181-.213-.548-.468-.938-.878-1.348-.41-.41-.8-.665-1.348-.878-.417-.163-1.037-.35-2.181-.403-1.236-.056-1.608-.068-4.738-.068zm0 3.75c-2.348 0-4.25 1.902-4.25 4.25s1.902 4.25 4.25 4.25 4.25-1.902 4.25-4.25-1.902-4.25-4.25-4.25zm0 6.5c-1.242 0-2.25-1.008-2.25-2.25s1.008-2.25 2.25-2.25 2.25 1.008 2.25 2.25-1.008 2.25-2.25 2.25zm5.5-8.5c0-.594-.481-1.075-1.075-1.075s-1.075.481-1.075 1.075.481 1.075 1.075 1.075 1.075-.481 1.075-1.075z"/></svg>
+
+    <!-- LinkedIn -->
+    <svg class="w-6 h-6 fill-current hover:text-purple-500 cursor-pointer transition-colors" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg>
+
+    <!-- YouTube -->
+    <svg class="w-6 h-6 fill-current hover:text-purple-500 cursor-pointer transition-colors" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+
+    <!-- X (Twitter) -->
+    <svg class="w-6 h-6 fill-current hover:text-purple-500 cursor-pointer transition-colors" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+</div>
+        </div>
+
+        <!-- Links Section -->
+        <div class="grid grid-cols-2 gap-4 lg:col-span-2">
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="hover:text-purple-400 transition-colors"><a href="index.html">Home</a></li>
+                    <li class="hover:text-purple-400 transition-colors"><a href="home2.html">Home2</a></li>
+                    <li class="hover:text-purple-400 transition-colors"><a href="aboutus.html">About us</a></li>
+                    <li class="hover:text-purple-400 transition-colors"><a href="services.html">Services</a></li>
+                    <li class="hover:text-purple-400 transition-colors"><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold mb-4">Support</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="hover:text-purple-400 transition-colors"><a href="pricing.html">Pricing</a></li>
+                    <li class="hover:text-purple-400 transition-colors"><a href="contact.html">Contact</a></li>
+                    <li class="hover:text-purple-400 transition-colors"><a href="booknow.html">Book Now</a></li>
+                    <li class="hover:text-purple-400 transition-colors"><a href="404.html">404</a></li>
+                    <li class="hover:text-purple-400 transition-colors"><a href="comingsoon.html">ComingSoon</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="p-6 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-300">
+            <h4 class="text-slate-900 dark:text-white font-semibold mb-2">Newsletter</h4>
+            <p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Get the latest updates on aquarium care.</p>
+            <form id="newsletterForm" class="flex flex-col gap-3 relative">
+                <input type="email" id="emailInput" placeholder="Enter your email" required class="w-full p-3 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all">
+                <button type="submit" id="subscribeBtn" class="w-full md:w-auto whitespace-nowrap bg-gradient-to-r from-purple-600 to-fuchsia-600 px-6 p-3 rounded-lg font-bold text-white transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-purple-500/30 border-0">
+                    <span id="btnText" class="drop-shadow-md">Subscribe</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="max-w-7xl mx-auto px-6 mt-16 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
+        &copy; 2026 Aqua. All rights reserved. Designed with passion for aquatic beauty.
+    </div>
+</footer>
+
+    <script>
+        // Theme & Direction Persistence Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const dirToggle = document.getElementById('dirToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        // Dark Mode
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // Direction Toggle
+        const setDir = (dir) => {
+            document.documentElement.dir = dir;
+            localStorage.dir = dir;
+        };
+        dirToggle.addEventListener('click', () => {
+            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
+        });
+        if(localStorage.dir) setDir(localStorage.dir);
+
+        // Mobile Menu
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
+    <script>
+    // Logic to toggle the mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+</body>
+</html>

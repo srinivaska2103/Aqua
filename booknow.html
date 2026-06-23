@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='purple-grad' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%239333ea'/%3E%3Cstop offset='100%25' stop-color='%23c026d3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z' fill='url(%23purple-grad)'/%3E%3C/svg%3E">
+    <title>AquaGlow | Premium Aquarium Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-300 font-sans min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="p-6 flex items-center max-w-5xl mx-auto w-full">
+       <a href="index.html">
+                <div class="flex items-center space-x-2 shrink-0">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="url(#purple-grad)" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#9333ea" />
+                            <stop offset="100%" stop-color="#c026d3" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z" fill="url(#purple-grad)"/>
+                </svg>
+                <div class="text-2xl font-bold text-purple-700 dark:text-purple-400">Aqua</div>
+            </div>
+            </a>
+        <div class="ml-auto flex gap-3">
+            <button class="themeToggle p-2 rounded-full hover:bg-purple-100 dark:hover:bg-slate-800 text-purple-600 transition-colors">🌓</button>
+            <button id="dirToggle" class="px-4 py-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600 hover:bg-purple-50 dark:hover:bg-slate-800 transition-colors">LTR/RTL</button>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto p-6 mt-10 w-full">
+        <!-- Steps Header -->
+        <div class="flex justify-between mb-12 relative px-2">
+            <div id="progress-bar" class="absolute top-5 left-0 h-0.5 bg-slate-200 dark:bg-slate-800 -z-10 transition-all duration-500" style="width: 0%;"></div>
+            <div id="step1-ind" class="step-indicator flex flex-col items-center gap-2 active">
+                <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">1</div>
+                <span class="text-xs font-semibold">Service</span>
+            </div>
+            <div id="step2-ind" class="step-indicator flex flex-col items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 flex items-center justify-center font-bold">2</div>
+                <span class="text-xs font-semibold">Date</span>
+            </div>
+            <div id="step3-ind" class="step-indicator flex flex-col items-center gap-2">
+                <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 flex items-center justify-center font-bold">3</div>
+                <span class="text-xs font-semibold">Details</span>
+            </div>
+        </div>
+
+        <!-- Wizard Content -->
+        <div class="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800">
+            <div id="step-content"></div>
+            
+            <div class="mt-8 flex justify-between">
+                <button id="prevBtn" class="hidden text-slate-500 font-semibold px-6 py-3">Back</button>
+                <button id="nextBtn" class="ml-auto bg-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-purple-700 transition-all">Next Step</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let currentStep = 1;
+        const content = document.getElementById('step-content');
+        
+        const steps = {
+            1: `<h2 class="text-2xl font-bold mb-6 dark:text-white">Choose Service</h2>
+                <select class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 mb-4 dark:text-white border-2 border-transparent focus:border-purple-500"><option>Tank Maintenance</option><option>Aquascaping</option></select>`,
+            2: `<h2 class="text-2xl font-bold mb-6 dark:text-white">Select Date</h2>
+                <input type="date" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-2 border-transparent focus:border-purple-500">`,
+            3: `<h2 class="text-2xl font-bold mb-6 dark:text-white">Your Details</h2>
+                <div class="space-y-4">
+                    <input type="text" placeholder="Full Name" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-2 focus:border-purple-500">
+                    <input type="tel" placeholder="Phone Number" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-2 focus:border-purple-500">
+                    <textarea placeholder="Service Address" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 dark:text-white border-2 focus:border-purple-500 h-24"></textarea>
+                </div>`
+        };
+
+        function render() {
+            content.innerHTML = steps[currentStep];
+            document.getElementById('prevBtn').classList.toggle('hidden', currentStep === 1);
+            document.getElementById('nextBtn').innerText = currentStep === 3 ? 'Confirm Booking' : 'Next Step';
+            
+            // Update Progress bar and indicators
+            document.getElementById('progress-bar').style.width = ((currentStep - 1) * 50) + '%';
+            [1, 2, 3].forEach(i => {
+                const ind = document.getElementById(`step${i}-ind`);
+                ind.querySelector('div').className = `w-10 h-10 rounded-full flex items-center justify-center font-bold ${currentStep >= i ? 'bg-purple-600 text-white' : 'bg-slate-200 dark:bg-slate-800 text-slate-500'}`;
+            });
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if(currentStep < 3) { currentStep++; render(); }
+            else alert('Booking Confirmed! We will reach out shortly.');
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if(currentStep > 1) { currentStep--; render(); }
+        });
+
+        render();
+
+        document.querySelectorAll('.themeToggle').forEach(b => b.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        }));
+        document.getElementById('dirToggle').addEventListener('click', () => {
+            const dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            document.documentElement.dir = dir;
+            localStorage.dir = dir;
+        });
+    </script>
+</body>
+</html>

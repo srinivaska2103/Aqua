@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='purple-grad' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%239333ea'/%3E%3Cstop offset='100%25' stop-color='%23c026d3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z' fill='url(%23purple-grad)'/%3E%3C/svg%3E">
+    <title>AquaGlow | Premium Aquarium Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } } }
+        }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 transition-colors duration-300 font-sans min-h-screen flex flex-col">
+
+    <nav class="w-full p-4 md:p-6 flex items-center max-w-5xl mx-auto">
+        <div class="ml-auto flex gap-2 md:gap-3">
+            <button id="themeToggle" class="p-2.5 rounded-full hover:bg-purple-100 dark:hover:bg-slate-800 text-purple-600 transition-colors">🌓</button>
+            <button id="dirToggle" class="px-4 py-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600 hover:bg-purple-50 dark:hover:bg-slate-800 transition-colors">LTR/RTL</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-6">
+        <div class="w-full max-w-md bg-white dark:bg-slate-900 p-6 sm:p-8 md:p-10 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 transition-all">
+            
+            <a href="index.html">
+                <div class="flex flex-col items-center mb-6">
+                    <svg class="w-10 h-10 sm:w-12 sm:h-12 mb-2" viewBox="0 0 24 24" fill="url(#purple-grad-form)" xmlns="http://www.w3.org/2000/svg">
+                        <defs><linearGradient id="purple-grad-form"><stop offset="0%" stop-color="#9333ea"/><stop offset="100%" stop-color="#c026d3"/></linearGradient></defs>
+                        <path d="M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z" fill="url(#purple-grad-form)"/>
+                    </svg>
+                    <div class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">Aqua</div>
+                </div>
+            </a>
+
+            <h2 class="text-2xl sm:text-3xl font-semibold text-center text-slate-900 dark:text-white mb-2">Create Account</h2>
+            <p class="text-sm sm:text-base text-slate-500 text-center mb-6 sm:mb-8">Join our aquatic community today.</p>
+
+            <form class="space-y-4 sm:space-y-5">
+                <input type="text" placeholder="Full Name" class="w-full p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-slate-800 outline-none border-2 border-transparent focus:border-purple-500 dark:text-white transition-all">
+                <input type="email" placeholder="Email Address" class="w-full p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-slate-800 outline-none border-2 border-transparent focus:border-purple-500 dark:text-white transition-all">
+                <input type="password" placeholder="Password" class="w-full p-3.5 sm:p-4 rounded-xl bg-slate-50 dark:bg-slate-800 outline-none border-2 border-transparent focus:border-purple-500 dark:text-white transition-all">
+
+                <label class="flex items-center gap-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400 cursor-pointer">
+                    <input type="checkbox" class="accent-purple-600 w-4 h-4"> I agree to the <a href="#" class="text-purple-600 font-semibold hover:underline">Terms & Privacy</a>
+                </label>
+
+                <button class="w-full py-3.5 sm:py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white rounded-xl font-semibold text-base sm:text-lg hover:scale-[1.01] transition-transform shadow-lg shadow-purple-500/20">Sign Up</button>
+            </form>
+
+                      <!-- Social Logins -->
+        <div class="mt-8 grid grid-cols-3 gap-4">
+    <!-- Google -->
+    <button class="py-3 flex justify-center border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-900 dark:text-white">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+        </svg>
+    </button>
+    
+    <!-- Facebook -->
+    <button class="py-3 flex justify-center border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-900 dark:text-white">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.675 0h-21.35c-0.73 0-1.325 0.595-1.325 1.325v21.351c0 0.73 0.595 1.324 1.325 1.324h11.491v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463 0.099 2.795 0.143v3.24l-1.918 0.001c-1.504 0-1.795 0.715-1.795 1.763v2.31h3.587l-0.467 3.622h-3.12v9.294h6.116c0.73 0 1.325-0.594 1.325-1.324v-21.351c0-0.73-0.595-1.325-1.325-1.325z"/>
+        </svg>
+    </button>
+    
+    <!-- Apple -->
+    <button class="py-3 flex justify-center border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-slate-900 dark:text-white">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.8-3.3-.8-1.54 0-2.01.78-3.32.82-1.36.03-2.33-1.28-3.33-2.6-1.83-2.45-3.21-6.88-1.36-9.87 1.12-1.8 3.06-2.94 5.15-2.97 1.33-.03 2.58.89 3.39.89.81 0 2.22-1.07 3.73-1.07 1.05.02 2.05.54 2.72 1.36-.08.06-2.19 1.29-2.19 3.82 0 3.25 2.92 4.41 3.03 4.45-.03.11-.47 1.62-1.57 3.24zM16.59 7.42c.9-1.09 1.5-2.61 1.33-4.12-1.29.05-2.86.86-3.78 1.94-.83 1.05-1.5 2.59-1.32 4.07 1.44.11 2.89-.66 3.77-1.89z"/>
+        </svg>
+    </button>
+</div>
+
+            <p class="text-center mt-6 text-sm text-slate-600 dark:text-slate-400">
+                Already have an account? <a href="login.html" class="text-purple-600 font-semibold hover:underline">Log in</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const dirToggle = document.getElementById('dirToggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+        dirToggle.addEventListener('click', () => {
+            const dir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            document.documentElement.dir = dir;
+            localStorage.dir = dir;
+        });
+        if (localStorage.theme === 'dark') document.documentElement.classList.add('dark');
+        if (localStorage.dir) document.documentElement.dir = localStorage.dir;
+    </script>
+</body>
+</html>
