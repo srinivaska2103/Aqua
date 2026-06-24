@@ -109,6 +109,34 @@
             <button id="mobileThemeToggle" class="p-2 rounded-full border border-purple-500 text-purple-600">🌓</button>
             <button id="mobileDirToggle" class="p-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600">LTR/RTL</button>
         </div>
+       <script>
+    // 1. Theme Toggle: Handles both desktop and mobile IDs
+    function setupThemeToggle(id) {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            });
+        }
+    }
+    setupThemeToggle('themeToggle');      // Desktop ID
+    setupThemeToggle('mobileThemeToggle'); // Mobile ID
+
+    // 2. Direction Toggle: Handles both desktop and mobile IDs
+    function setupDirToggle(id) {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const currentDir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+                document.documentElement.dir = currentDir;
+                localStorage.dir = currentDir;
+            });
+        }
+    }
+    setupDirToggle('dirToggle');      // Desktop ID
+    setupDirToggle('mobileDirToggle'); // Mobile ID
+</script>
        <div class="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-4 px-2">
     
     <a href="login.html" class="block">
@@ -502,8 +530,8 @@
             <h3 class="text-xl font-semibold mb-2">Premium Care</h3>
             <div class="text-4xl font-bold my-6">$99<span class="text-lg text-slate-400 font-normal">/mo</span></div>
             <ul class="space-y-4 mb-8 text-slate-300">
-                <li class="flex items-center gap-3 text-white">✓ Weekly Maintenance</li>
-                <li class="flex items-center gap-3 text-white">✓ Fish Health Monitoring</li>
+                <li class="flex items-center gap-3 text-white">✓ Weekly Clean</li>
+                <li class="flex items-center gap-3 text-white">✓ Fish Monitoring</li>
                 <li class="flex items-center gap-3 text-white">✓ Equipment Check</li>
             </ul>
             <button class="w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 font-semibold hover:opacity-90 transition-all">
@@ -513,10 +541,10 @@
 
         <!-- Commercial Plan -->
         <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all duration-300">
-            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">Commercial Plan</h3>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">Coustom Plan</h3>
             <div class="text-4xl font-bold text-slate-900 dark:text-white my-6">$199<span class="text-lg text-slate-500 font-normal">/mo</span></div>
             <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-400">
-                <li class="flex items-center gap-3">✓ Multiple Tank Management</li>
+                <li class="flex items-center gap-3">✓Tank Management</li>
                 <li class="flex items-center gap-3">✓ Priority Support</li>
                 <li class="flex items-center gap-3">✓ Emergency Visits</li>
             </ul>
@@ -598,9 +626,11 @@
             </div>
         </div>
 
-        <button onclick="calculate()" class="w-full py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white rounded-xl font-semibold text-lg hover:scale-[1.01] transition-transform shadow-lg shadow-purple-500/20">
-            Calculate Full Requirements
-        </button>
+        <div class="px-6 md:px-0 w-full max-w-md mx-auto mt-6">
+    <button onclick="calculate()" class="w-full py-4 bg-gradient-to-r from-purple-600 to-fuchsia-600 text-white rounded-xl font-semibold text-lg hover:scale-[1.01] transition-transform shadow-lg shadow-purple-500/20 active:scale-[0.98]">
+        Calculate Full Requirements
+    </button>
+</div>
 
         <!-- Results Grid -->
         <div id="result" class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 hidden">
@@ -960,34 +990,45 @@
 </footer>
 
     <script>
-        // Theme & Direction Persistence Logic
-        const themeToggle = document.getElementById('themeToggle');
-        const dirToggle = document.getElementById('dirToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    // 1. Unified Theme Logic
+    const themeToggles = document.querySelectorAll('.themeToggle'); // Use class instead of ID
+    
+    // Apply saved theme on load
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    }
 
-        // Dark Mode
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-        themeToggle.addEventListener('click', () => {
+    // Attach listener to ALL buttons with class 'themeToggle'
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
         });
+    });
 
-        // Direction Toggle
-        const setDir = (dir) => {
-            document.documentElement.dir = dir;
-            localStorage.dir = dir;
-        };
-        dirToggle.addEventListener('click', () => {
+    // 2. Unified Direction Logic
+    const dirToggles = document.querySelectorAll('.dirToggle'); // Use class instead of ID
+    const setDir = (dir) => {
+        document.documentElement.dir = dir;
+        localStorage.dir = dir;
+    };
+
+    dirToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
             setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
         });
-        if(localStorage.dir) setDir(localStorage.dir);
+    });
 
-        // Mobile Menu
+    if(localStorage.dir) setDir(localStorage.dir);
+
+    // 3. Mobile Menu Logic
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    
+    if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    </script>
+    }
+</script>
     <script>
     // Logic to toggle the mobile menu
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');

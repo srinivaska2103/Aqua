@@ -109,6 +109,34 @@
             <button id="mobileThemeToggle" class="p-2 rounded-full border border-purple-500 text-purple-600">🌓</button>
             <button id="mobileDirToggle" class="p-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600">LTR/RTL</button>
         </div>
+        <script>
+    // 1. Theme Toggle: Handles both desktop and mobile IDs
+    function setupThemeToggle(id) {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            });
+        }
+    }
+    setupThemeToggle('themeToggle');      // Desktop ID
+    setupThemeToggle('mobileThemeToggle'); // Mobile ID
+
+    // 2. Direction Toggle: Handles both desktop and mobile IDs
+    function setupDirToggle(id) {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const currentDir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+                document.documentElement.dir = currentDir;
+                localStorage.dir = currentDir;
+            });
+        }
+    }
+    setupDirToggle('dirToggle');      // Desktop ID
+    setupDirToggle('mobileDirToggle'); // Mobile ID
+</script>
        <div class="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-4 px-2">
     
     <a href="login.html" class="block">
@@ -139,6 +167,36 @@
         });
     });
 </script>
+
+    <script>
+        // Theme & Direction Persistence Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const dirToggle = document.getElementById('dirToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+        // Dark Mode
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+
+        // Direction Toggle
+        const setDir = (dir) => {
+            document.documentElement.dir = dir;
+            localStorage.dir = dir;
+        };
+        dirToggle.addEventListener('click', () => {
+            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
+        });
+        if(localStorage.dir) setDir(localStorage.dir);
+
+        // Mobile Menu
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    </script>
 
 
 
@@ -181,31 +239,27 @@
     </div>
 </section>
 <!-- STATISTICS SECTION -->
-<section class="max-w-7xl mx-auto px-6 py-20">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
+<section class="max-w-7xl mx-auto px-4 py-16">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
         
-        <!-- Stat Item 1 -->
-        <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center group">
-            <h3 class="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent mb-3 group-hover:scale-105 transition-transform">500+</h3>
-            <p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest">Aquariums</p>
+        <div class="p-6 md:p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 text-center group">
+            <h3 class="text-3xl md:text-5xl font-semibold bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent mb-1 md:mb-3">500+</h3>
+            <p class="text-[10px] md:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Aquariums</p>
         </div>
 
-        <!-- Stat Item 2 -->
-        <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center group">
-            <h3 class="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent mb-3 group-hover:scale-105 transition-transform">1k+</h3>
-            <p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest">Maintenance</p>
+        <div class="p-6 md:p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 text-center group">
+            <h3 class="text-3xl md:text-5xl font-semibold bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent mb-1 md:mb-3">1k+</h3>
+            <p class="text-[10px] md:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Maintenance</p>
         </div>
 
-        <!-- Stat Item 3 -->
-        <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center group">
-            <h3 class="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent mb-3 group-hover:scale-105 transition-transform">200+</h3>
-            <p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest">Customers</p>
+        <div class="p-6 md:p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 text-center group">
+            <h3 class="text-3xl md:text-5xl font-semibold bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent mb-1 md:mb-3">200+</h3>
+            <p class="text-[10px] md:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Customers</p>
         </div>
 
-        <!-- Stat Item 4 -->
-        <div class="p-8 bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 text-center group">
-            <h3 class="text-4xl md:text-5xl font-semibold bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent mb-3 group-hover:scale-105 transition-transform">5+</h3>
-            <p class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-widest">Experience</p>
+        <div class="p-6 md:p-8 bg-white dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 text-center group">
+            <h3 class="text-3xl md:text-5xl font-semibold bg-gradient-to-r from-purple-700 to-indigo-600 bg-clip-text text-transparent mb-1 md:mb-3">5+</h3>
+            <p class="text-[10px] md:text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Experience</p>
         </div>
 
     </div>
@@ -335,18 +389,20 @@
 </section>
 <section class="py-20 px-6 max-w-7xl mx-auto">
     <!-- Header -->
-    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-        <div>
-            <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
-            <p class="text-slate-600 dark:text-slate-400">A collection of our most breathtaking aquatic installations.</p>
-        </div>
-        <!-- Filter Tabs -->
-        <div class="flex flex-wrap gap-2">
-            <button class="px-4 py-2 rounded-full bg-purple-600 text-white text-sm font-semibold">All</button>
-            <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 transition-colors">Luxury Home</button>
-            <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 transition-colors">Office</button>
-        </div>
+    <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
+    <!-- Header Text -->
+    <div class="text-center md:text-left">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
+        <p class="text-slate-600 dark:text-slate-400">A collection of our most breathtaking aquatic installations.</p>
     </div>
+
+    <!-- Filter Tabs: Centered on mobile, aligned right on desktop -->
+    <div class="flex flex-wrap gap-2 justify-center md:justify-end w-full md:w-auto">
+        <button class="px-4 py-2 rounded-full bg-purple-600 text-white text-sm font-semibold transition-all">All</button>
+        <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Luxury Home</button>
+        <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Office</button>
+    </div>
+</div>
 
     <!-- Project Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -471,8 +527,8 @@
             <h3 class="text-xl font-semibold mb-2">Premium Care</h3>
             <div class="text-4xl font-bold my-6">$99<span class="text-lg text-slate-400 font-normal">/mo</span></div>
             <ul class="space-y-4 mb-8 text-slate-300">
-                <li class="flex items-center gap-3 text-white">✓ Weekly Maintenance</li>
-                <li class="flex items-center gap-3 text-white">✓ Fish Health Monitoring</li>
+                <li class="flex items-center gap-3 text-white">✓ Weekly Clean</li>
+                <li class="flex items-center gap-3 text-white">✓ Fish Monitoring</li>
                 <li class="flex items-center gap-3 text-white">✓ Equipment Check</li>
             </ul>
             <button class="w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-fuchsia-600 font-semibold hover:opacity-90 transition-all">
@@ -482,10 +538,10 @@
 
         <!-- Commercial Plan -->
         <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:shadow-2xl transition-all duration-300">
-            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">Commercial Plan</h3>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">Coustom Plan</h3>
             <div class="text-4xl font-bold text-slate-900 dark:text-white my-6">$199<span class="text-lg text-slate-500 font-normal">/mo</span></div>
             <ul class="space-y-4 mb-8 text-slate-600 dark:text-slate-400">
-                <li class="flex items-center gap-3">✓ Multiple Tank Management</li>
+                <li class="flex items-center gap-3">✓Tank Management</li>
                 <li class="flex items-center gap-3">✓ Priority Support</li>
                 <li class="flex items-center gap-3">✓ Emergency Visits</li>
             </ul>
@@ -609,35 +665,6 @@
     </div>
 </footer>
 
-    <script>
-        // Theme & Direction Persistence Logic
-        const themeToggle = document.getElementById('themeToggle');
-        const dirToggle = document.getElementById('dirToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-
-        // Dark Mode
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-        });
-
-        // Direction Toggle
-        const setDir = (dir) => {
-            document.documentElement.dir = dir;
-            localStorage.dir = dir;
-        };
-        dirToggle.addEventListener('click', () => {
-            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
-        });
-        if(localStorage.dir) setDir(localStorage.dir);
-
-        // Mobile Menu
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    </script>
     <script>
     // Logic to toggle the mobile menu
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');

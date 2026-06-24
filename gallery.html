@@ -109,6 +109,7 @@
             <button id="mobileThemeToggle" class="p-2 rounded-full border border-purple-500 text-purple-600">🌓</button>
             <button id="mobileDirToggle" class="p-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600">LTR/RTL</button>
         </div>
+        
        <div class="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-4 px-2">
     
     <a href="login.html" class="block">
@@ -250,18 +251,20 @@
 </section>
 <section class="py-20 px-6 max-w-7xl mx-auto">
     <!-- Header -->
-    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-        <div>
-            <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
-            <p class="text-slate-600 dark:text-slate-400">A collection of our most breathtaking aquatic installations.</p>
-        </div>
-        <!-- Filter Tabs -->
-        <div class="flex flex-wrap gap-2">
-            <button class="px-4 py-2 rounded-full bg-purple-600 text-white text-sm font-semibold">All</button>
-            <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 transition-colors">Luxury Home</button>
-            <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 transition-colors">Office</button>
-        </div>
+  <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
+    <!-- Header Text -->
+    <div class="text-center md:text-left">
+        <h2 class="text-3xl md:text-4xl font-semibold text-slate-900 dark:text-white mb-2">Featured Projects</h2>
+        <p class="text-slate-600 dark:text-slate-400">A collection of our most breathtaking aquatic installations.</p>
     </div>
+
+    <!-- Filter Tabs: Centered on mobile, aligned right on desktop -->
+    <div class="flex flex-wrap gap-2 justify-center md:justify-end w-full md:w-auto">
+        <button class="px-4 py-2 rounded-full bg-purple-600 text-white text-sm font-semibold transition-all">All</button>
+        <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Luxury Home</button>
+        <button class="px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-semibold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">Office</button>
+    </div>
+</div>
 
     <!-- Project Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
