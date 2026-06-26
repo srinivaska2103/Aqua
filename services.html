@@ -21,75 +21,40 @@
 </head>
 <body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
 
-   <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-purple-200 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-20 items-center">
-            <a href="index.html">
-                <div class="flex items-center space-x-2 shrink-0">
-                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="url(#purple-grad)" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#9333ea" />
-                            <stop offset="100%" stop-color="#c026d3" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z" fill="url(#purple-grad)"/>
-                </svg>
-                <div class="text-2xl font-bold text-purple-700 dark:text-purple-400">Aqua</div>
-            </div>
-            </a>
-            
+ <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-purple-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-20 items-center">
+        
+        <a href="index.html" class="flex items-center space-x-2 shrink-0">
+            <svg class="w-8 h-8" viewBox="0 0 24 24" fill="url(#purple-grad)" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="purple-grad"><stop offset="0%" stop-color="#9333ea"/><stop offset="100%" stop-color="#c026d3"/></linearGradient></defs>
+                <path d="M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z" fill="url(#purple-grad)"/>
+            </svg>
+            <div class="text-2xl font-bold text-purple-700 dark:text-purple-400">Aqua</div>
+        </a>
 
-           <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-700 dark:text-slate-200">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="home2.html" class="nav-link">Home2</a>
-    <a href="aboutus.html" class="nav-link">About Us</a>
-    <a href="services.html" class="nav-link">Services</a>
-    <a href="gallery.html" class="nav-link">Gallery</a>
-    <a href="pricing.html" class="nav-link">Pricing</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-</div>
-<script>
-    // 1. Get the current filename (e.g., 'aboutus.html')
-    // We use window.location.pathname and split it to get the last part
-    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    
-    // 2. Select all links with the 'nav-link' class
-    const navLinks = document.querySelectorAll('.nav-link');
-
-    navLinks.forEach(link => {
-        // 3. Check if the link's href matches the current path
-        if (link.getAttribute('href') === currentPath) {
-            // Apply active styles
-            link.classList.add('text-purple-600', 'border-b-2', 'border-purple-600');
-            // Remove any hover classes that might conflict with active state
-            link.classList.remove('hover:text-purple-600');
-        } else {
-            // Apply normal hover styles for inactive links
-            link.classList.add('hover:text-purple-600', 'transition-colors');
-        }
-    });
-</script>
-
-
-            <div class="hidden lg:flex items-center space-x-4">
-                <button id="themeToggle" class="p-2 rounded-full hover:bg-purple-100 dark:hover:bg-slate-800 text-purple-600">🌓</button>
-                <button id="dirToggle" class="p-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600">LTR/RTL</button>
-                <a href="login.html">
-                <button class="text-purple-700 font-semibold hover:text-purple-900">Login</button>
-
-                </a>
-                <a href="booknow.html">
-                <button class="bg-gradient-to-r from-purple-600 to-purple-800 text-white px-6 py-2.5 rounded-full font-semibold shadow-lg hover:shadow-purple-500/30 transition-all">Book Now</button>
-
-                </a>
-            </div>
-
-            <button id="mobileMenuBtn" class="lg:hidden p-2 text-purple-700 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
+        <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-700 dark:text-slate-200">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="home2.html" class="nav-link">Home2</a>
+            <a href="aboutus.html" class="nav-link">About Us</a>
+            <a href="services.html" class="nav-link">Services</a>
+            <a href="gallery.html" class="nav-link">Gallery</a>
+            <a href="pricing.html" class="nav-link">Pricing</a>
+            <a href="contact.html" class="nav-link">Contact</a>
         </div>
+
+        <div class="hidden lg:flex items-center space-x-3">
+            <button class="themeToggle p-2 rounded-full hover:bg-purple-100 dark:hover:bg-slate-800 text-purple-600">🌓</button>
+            <button class="dirToggle px-3 py-1 text-xs font-bold border border-purple-500 rounded-full text-purple-600">LTR/RTL</button>
+            <a href="login.html" class="px-5 py-2 rounded-xl text-purple-700 dark:text-purple-400 font-semibold border border-purple-200 dark:border-purple-800 hover:bg-purple-50 transition-all">Login</a>
+            <a href="booknow.html" class="bg-purple-700 text-white px-5 py-2.5 rounded-full font-semibold shadow-lg hover:bg-purple-800 transition-all">Book!</a>
+        </div>
+
+        <button id="mobileMenuBtn" class="lg:hidden p-2 text-purple-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        </button>
     </div>
+</div>
 
 <!-- Added lg:hidden to hide it on large desktops automatically -->
 <!-- Mobile Menu -->
@@ -109,7 +74,34 @@
             <button id="mobileThemeToggle" class="p-2 rounded-full border border-purple-500 text-purple-600">🌓</button>
             <button id="mobileDirToggle" class="p-2 text-xs font-bold border border-purple-500 rounded-full text-purple-600">LTR/RTL</button>
         </div>
-        
+       <script>
+    // 1. Theme Toggle: Handles both desktop and mobile IDs
+    function setupThemeToggle(id) {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            });
+        }
+    }
+    setupThemeToggle('themeToggle');      // Desktop ID
+    setupThemeToggle('mobileThemeToggle'); // Mobile ID
+
+    // 2. Direction Toggle: Handles both desktop and mobile IDs
+    function setupDirToggle(id) {
+        const btn = document.getElementById(id);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const currentDir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+                document.documentElement.dir = currentDir;
+                localStorage.dir = currentDir;
+            });
+        }
+    }
+    setupDirToggle('dirToggle');      // Desktop ID
+    setupDirToggle('mobileDirToggle'); // Mobile ID
+</script>
        <div class="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-4 px-2">
     
     <a href="login.html" class="block">
@@ -120,7 +112,7 @@
 
     <a href="booknow.html" class="block">
         <button class="w-full bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-500 hover:to-purple-700 text-white py-3 rounded-xl font-semibold transition-all duration-300 active:scale-95 shadow-md hover:shadow-lg">
-            Book Now
+            Book!
         </button>
     </a>
 </div>
@@ -617,9 +609,7 @@
         // Theme & Direction Persistence Logic
         const themeToggle = document.getElementById('themeToggle');
         const dirToggle = document.getElementById('dirToggle');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-
+       
         // Dark Mode
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');

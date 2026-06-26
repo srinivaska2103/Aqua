@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='purple-grad' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='0%25' stop-color='%239333ea'/%3E%3Cstop offset='100%25' stop-color='%23c026d3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M17.067 11.08C17.29 11.236 17.433 11.493 17.433 11.782V12.915C17.433 13.204 17.291 13.461 17.067 13.616L11.536 17.422C11.192 17.658 10.732 17.412 10.732 16.996V14.887L7.338 16.34C7.039 16.47 6.697 16.326 6.577 16.027L6.033 14.673C5.913 14.374 6.057 14.032 6.356 13.912L10.732 12.176V11.332L6.356 9.59701C6.057 9.47701 5.913 9.13501 6.033 8.83601L6.577 7.48201C6.697 7.18301 7.039 7.03901 7.338 7.16901L10.732 8.62201V6.51301C10.732 6.09701 11.192 5.85101 11.536 6.08701L17.067 11.08Z' fill='url(%23purple-grad)'/%3E%3C/svg%3E">
+
     <title>AquaGlow | Premium Booking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -28,31 +30,102 @@
         </div>
     </nav>
 
-    <main class="max-w-3xl mx-auto p-6 mt-10 w-full flex-grow">
-        <div class="flex justify-between mb-12 relative px-2">
-            <div id="progress-bar" class="absolute top-5 left-0 h-0.5 bg-slate-200 dark:bg-slate-800 -z-10 transition-all duration-500" style="width: 0%;"></div>
-            <div id="step1-ind" class="step-indicator flex flex-col items-center gap-2 active">
-                <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">1</div>
-                <span class="text-xs font-semibold text-slate-900 dark:text-white">Service</span>
-            </div>
-            <div id="step2-ind" class="step-indicator flex flex-col items-center gap-2">
-                <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 flex items-center justify-center font-bold">2</div>
-                <span class="text-xs font-semibold text-slate-400 dark:text-slate-500">Date</span>
-            </div>
-            <div id="step3-ind" class="step-indicator flex flex-col items-center gap-2">
-                <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-500 flex items-center justify-center font-bold">3</div>
-                <span class="text-xs font-semibold text-slate-400 dark:text-slate-500">Details</span>
-            </div>
-        </div>
-
+ <main class="w-full flex-grow bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+    <section class="py-12 px-6 max-w-4xl mx-auto">
+        <!-- Main Card: Added dark-mode specific border and shadow -->
         <div class="bg-white dark:bg-slate-900 p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 transition-colors duration-300">
-            <div id="step-content"></div>
-            <div class="mt-8 flex justify-between">
-                <button id="prevBtn" class="hidden text-slate-500 dark:text-slate-400 font-semibold px-6 py-3 hover:text-purple-600 transition-colors">Back</button>
-                <button id="nextBtn" class="ml-auto bg-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-purple-700 transition-all active:scale-95">Next Step</button>
+            
+            <div class="mb-10 text-center">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-2">Book Your Appointment</h2>
+                <p class="text-slate-500 dark:text-slate-400">Fill in the details below and we'll confirm your visit shortly.</p>
             </div>
+
+            <form class="space-y-8">
+                <!-- Personal Details -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-purple-700 dark:text-purple-400 border-b border-slate-100 dark:border-slate-800 pb-2">Personal Details</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <input type="text" placeholder="Full Name" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:ring-2 ring-purple-500 outline-none transition-all placeholder:text-slate-400">
+                        <input type="tel" placeholder="Phone Number" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:ring-2 ring-purple-500 outline-none transition-all placeholder:text-slate-400">
+                        <input type="email" placeholder="Email Address" class="w-full md:col-span-2 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 focus:ring-2 ring-purple-500 outline-none transition-all placeholder:text-slate-400">
+                    </div>
+                </div>
+
+                <!-- Service Details -->
+                <div class="space-y-4">
+                    <h3 class="text-lg font-semibold text-purple-700 dark:text-purple-400 border-b border-slate-100 dark:border-slate-800 pb-2">Service Details</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <select class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 outline-none transition-all">
+                            <option>Service Type</option>
+                            <option>Maintenance</option>
+                            <option>Installation</option>
+                        </select>
+                        <select class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 outline-none transition-all">
+                            <option>Aquarium Type</option>
+                            <option>Freshwater</option>
+                            <option>Marine</option>
+                            <option>Reef</option>
+                        </select>
+                        <input type="text" placeholder="Aquarium Size (e.g. 4 Feet)" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 outline-none transition-all placeholder:text-slate-400">
+                        <select class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 outline-none transition-all">
+                            <option>Home or Commercial</option>
+                            <option>Home</option>
+                            <option>Commercial</option>
+                        </select>
+                        <input type="date" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 outline-none transition-all [color-scheme:light] dark:[color-scheme:dark]">
+                        <input type="time" class="w-full p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 outline-none transition-all [color-scheme:light] dark:[color-scheme:dark]">
+                        <textarea placeholder="Service Address" class="w-full md:col-span-2 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 h-24 outline-none placeholder:text-slate-400"></textarea>
+                        <textarea placeholder="Additional Notes" class="w-full md:col-span-2 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 h-24 outline-none placeholder:text-slate-400"></textarea>
+                    </div>
+                </div>
+
+                <!-- Photo Upload Area -->
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-slate-500 dark:text-slate-400">Upload Photos (Optional)</label>
+                    <div class="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl p-8 text-center hover:border-purple-500 dark:hover:border-purple-500 transition-colors cursor-pointer text-slate-400">
+                        <p>Click to upload or drag and drop</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-5 bg-purple-700 hover:bg-purple-800 text-white rounded-2xl font-bold text-lg shadow-lg shadow-purple-500/20 transition-all active:scale-[0.98]">
+                    Confirm Booking
+                </button>
+            </form>
         </div>
-    </main>
+    </section>
+</main>
+<script>
+    // 1. Theme Toggle: Handles all buttons with class 'themeToggle'
+    const themeToggles = document.querySelectorAll('.themeToggle');
+    
+    // Check initial theme from localStorage
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    }
+
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+    });
+
+    // 2. Direction Toggle: Handles the specific ID (and can be expanded to class)
+    const dirToggle = document.getElementById('dirToggle');
+    
+    // Apply saved direction on load
+    if (localStorage.dir) {
+        document.documentElement.dir = localStorage.dir;
+    }
+
+    if (dirToggle) {
+        dirToggle.addEventListener('click', () => {
+            const newDir = document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl';
+            document.documentElement.dir = newDir;
+            localStorage.dir = newDir;
+        });
+    }
+</script>
 
     <script>
         let currentStep = 1;
