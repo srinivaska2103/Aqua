@@ -20,7 +20,7 @@
     </style>
 </head>
 <body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
- <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-purple-200 dark:border-slate-800">
+   <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-purple-200 dark:border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-20 items-center">
         
@@ -135,6 +135,55 @@
 
 
 </nav>
+    <script>
+    // 1. Unified Theme Logic
+    const themeToggles = document.querySelectorAll('.themeToggle'); // Use class instead of ID
+    
+    // Apply saved theme on load
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    }
+
+    // Attach listener to ALL buttons with class 'themeToggle'
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+    });
+
+    // 2. Unified Direction Logic
+    const dirToggles = document.querySelectorAll('.dirToggle'); // Use class instead of ID
+    const setDir = (dir) => {
+        document.documentElement.dir = dir;
+        localStorage.dir = dir;
+    };
+
+    dirToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
+        });
+    });
+
+    if(localStorage.dir) setDir(localStorage.dir);
+
+    // 3. Mobile Menu Logic
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+</script>
+    <script>
+    // Logic to toggle the mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
 <section class="text-center py-12 px-6">
     <h1 class="text-4xl md:text-6xl font-semibold mb-4 text-slate-900 dark:text-white">
         Let's build something <span class="text-purple-700 dark:text-purple-400">extraordinary</span>
@@ -310,42 +359,6 @@
     </div>
 </footer>
 
-    <script>
-        // Theme & Direction Persistence Logic
-        const themeToggle = document.getElementById('themeToggle');
-        const dirToggle = document.getElementById('dirToggle');
-       
 
-        // Dark Mode
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-        });
-
-        // Direction Toggle
-        const setDir = (dir) => {
-            document.documentElement.dir = dir;
-            localStorage.dir = dir;
-        };
-        dirToggle.addEventListener('click', () => {
-            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
-        });
-        if(localStorage.dir) setDir(localStorage.dir);
-
-        // Mobile Menu
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    </script>
-    <script>
-    // Logic to toggle the mobile menu
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-</script>
 </body>
 </html>

@@ -136,6 +136,55 @@
 
 
 </nav>
+    <script>
+    // 1. Unified Theme Logic
+    const themeToggles = document.querySelectorAll('.themeToggle'); // Use class instead of ID
+    
+    // Apply saved theme on load
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    }
+
+    // Attach listener to ALL buttons with class 'themeToggle'
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+    });
+
+    // 2. Unified Direction Logic
+    const dirToggles = document.querySelectorAll('.dirToggle'); // Use class instead of ID
+    const setDir = (dir) => {
+        document.documentElement.dir = dir;
+        localStorage.dir = dir;
+    };
+
+    dirToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
+        });
+    });
+
+    if(localStorage.dir) setDir(localStorage.dir);
+
+    // 3. Mobile Menu Logic
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+</script>
+    <script>
+    // Logic to toggle the mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
 
 <section class="max-w-7xl mx-auto px-6 py-16 lg:py-24 flex flex-col lg:flex-row items-center gap-12">
     
@@ -954,54 +1003,6 @@
     </div>
 </footer>
 
-    <script>
-    // 1. Unified Theme Logic
-    const themeToggles = document.querySelectorAll('.themeToggle'); // Use class instead of ID
-    
-    // Apply saved theme on load
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
-    }
 
-    // Attach listener to ALL buttons with class 'themeToggle'
-    themeToggles.forEach(btn => {
-        btn.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-        });
-    });
-
-    // 2. Unified Direction Logic
-    const dirToggles = document.querySelectorAll('.dirToggle'); // Use class instead of ID
-    const setDir = (dir) => {
-        document.documentElement.dir = dir;
-        localStorage.dir = dir;
-    };
-
-    dirToggles.forEach(btn => {
-        btn.addEventListener('click', () => {
-            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
-        });
-    });
-
-    if(localStorage.dir) setDir(localStorage.dir);
-
-    // 3. Mobile Menu Logic
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    
-    if (mobileMenuBtn) {
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    }
-</script>
-    <script>
-    // Logic to toggle the mobile menu
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-</script>
 </body>
 </html>

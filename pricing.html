@@ -21,7 +21,7 @@
 </head>
 <body class="bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100 transition-colors duration-300">
 
- <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-purple-200 dark:border-slate-800">
+   <nav class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-purple-200 dark:border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-20 items-center">
         
@@ -136,35 +136,96 @@
 
 
 </nav>
+    <script>
+    // 1. Unified Theme Logic
+    const themeToggles = document.querySelectorAll('.themeToggle'); // Use class instead of ID
+    
+    // Apply saved theme on load
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    }
+
+    // Attach listener to ALL buttons with class 'themeToggle'
+    themeToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+    });
+
+    // 2. Unified Direction Logic
+    const dirToggles = document.querySelectorAll('.dirToggle'); // Use class instead of ID
+    const setDir = (dir) => {
+        document.documentElement.dir = dir;
+        localStorage.dir = dir;
+    };
+
+    dirToggles.forEach(btn => {
+        btn.addEventListener('click', () => {
+            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
+        });
+    });
+
+    if(localStorage.dir) setDir(localStorage.dir);
+
+    // 3. Mobile Menu Logic
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+</script>
+    <script>
+    // Logic to toggle the mobile menu
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
 <!-- PRICING HERO SECTION -->
-<section class="py-20 px-6 text-center">
-    <!-- Badge -->
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-semibold text-sm mb-6">
-        <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
-        </span>
-        Simple, Transparent Pricing
+<section class="relative py-20 px-6 text-center overflow-hidden">
+    <!-- Background Image Layer -->
+    <div class="absolute inset-0 z-0">
+        <img src="assets/s22" 
+             alt="Aquarium Background" 
+             class="w-full h-full object-cover filter brightness-[0.8] dark:brightness-[0.4] transition-all duration-700">
+        <!-- Overlay to ensure text readability -->
+        <div class="absolute inset-0 bg-white/60 dark:bg-slate-950/70"></div>
     </div>
 
-    <!-- Heading -->
-    <h1 class="text-5xl md:text-7xl font-semibold text-slate-900 dark:text-white mb-6 tracking-tight">
-        Choose the plan that<br class="hidden md:block"> fits your <span class="text-purple-700 dark:text-purple-400">aquatic goals</span>
-    </h1>
+    <!-- Content Wrapper (Added z-10 and relative to stay above background) -->
+    <div class="relative z-10 max-w-4xl mx-auto">
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 font-semibold text-sm mb-6">
+            <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+            </span>
+            Simple, Transparent Pricing
+        </div>
 
-    <!-- Subheadline -->
-    <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-        Whether you're just starting your first tank or managing a commercial reef system, we have a professional tier designed to help your ecosystem thrive.
-    </p>
+        <!-- Heading -->
+        <h1 class="text-5xl md:text-7xl font-semibold text-slate-900 dark:text-white mb-6 tracking-tight">
+            Choose the plan that<br class="hidden md:block"> fits your <span class="text-purple-700 dark:text-purple-400">aquatic goals</span>
+        </h1>
 
-    <!-- Call to Action -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#plans" class="px-8 py-4 bg-purple-700 text-white rounded-xl font-semibold hover:bg-purple-800 transition-all shadow-lg shadow-purple-600/20">
-            View All Plans
-        </a>
-        <a href="contact.html" class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl font-semibold hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">
-            Contact Sales
-        </a>
+        <!-- Subheadline -->
+        <p class="text-lg md:text-xl text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
+            Whether you're just starting your first tank or managing a commercial reef system, we have a professional tier designed to help your ecosystem thrive.
+        </p>
+
+        <!-- Call to Action -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#plans" class="px-8 py-4 bg-purple-700 text-white rounded-xl font-semibold hover:bg-purple-800 transition-all shadow-lg shadow-purple-600/20">
+                View All Plans
+            </a>
+            <a href="contact.html" class="px-8 py-4 bg-white dark:bg-slate-800 text-slate-900 dark:text-white rounded-xl font-semibold hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">
+                Contact Sales
+            </a>
+        </div>
     </div>
 </section>
 <section class="py-20 px-6 max-w-7xl mx-auto">
@@ -303,6 +364,7 @@
 </section>
 <!-- ONE-TIME SERVICES SECTION -->
 <section class="max-w-6xl mx-auto px-6 py-16">
+    
     <div class="mb-12">
         <h2 class="text-4xl font-semibold text-slate-900 dark:text-white mb-2">One-Time Services</h2>
         <p class="text-slate-500 dark:text-slate-400">Professional care when you need it most.</p>
@@ -588,41 +650,5 @@
     </div>
 </footer>
 
-    <script>
-        // Theme & Direction Persistence Logic
-        const themeToggle = document.getElementById('themeToggle');
-        const dirToggle = document.getElementById('dirToggle');
-       
-        // Dark Mode
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        }
-        themeToggle.addEventListener('click', () => {
-            document.documentElement.classList.toggle('dark');
-            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-        });
-
-        // Direction Toggle
-        const setDir = (dir) => {
-            document.documentElement.dir = dir;
-            localStorage.dir = dir;
-        };
-        dirToggle.addEventListener('click', () => {
-            setDir(document.documentElement.dir === 'rtl' ? 'ltr' : 'rtl');
-        });
-        if(localStorage.dir) setDir(localStorage.dir);
-
-        // Mobile Menu
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-    </script>
-    <script>
-    // Logic to toggle the mobile menu
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-</script>
 </body>
 </html>
